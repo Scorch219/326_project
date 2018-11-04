@@ -14,7 +14,11 @@ class UserDetailView(generic.DetailView):
 class ProductListView(generic.ListView):
 	model = Product
 	template_name = "browser_page.html"
-	template_name2 = "user_page.html"
+	paginate_by = 10 
+	
+class ProductListView2(generic.ListView): 
+	model = Product 
+	template_name = "user_page.html" 
 	paginate_by = 10
 
 
@@ -28,4 +32,8 @@ def product_detail_view(request, primary_key):
     except product.DoesNotExist:
         raise Http404('Book does not exist')
 
-    return render(request, 'product_page.html', context={'product': product})
+    return render(request, 'product_page.html', context={'product': product}) 
+	
+def about (request): 
+	context={}
+	return render(request, 'about_page.html', context=context)

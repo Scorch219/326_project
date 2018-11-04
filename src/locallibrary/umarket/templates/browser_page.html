@@ -45,8 +45,9 @@
                 </div>
                {% endfor %}
                {% else %}
-                 <label>There are no available Products.</label>
-               {% endblock %}
+                 <label>There are no available Products.</label> 
+               {% endif %}
+            {% endblock %}
 
             <!--Limit set to 10 items a page-->
                 {% block pagination %}
@@ -141,4 +142,3 @@
             </div>
         </div>
     </div>
-{% endblock %}

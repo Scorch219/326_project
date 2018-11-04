@@ -1,14 +1,16 @@
 {% extends "template_base.html" %}
 
   <!--User info displayed-->
-  {% block content %}
+  {% block content %} 
+
+<body style = "background-color: #800000;">
   <h1>User page</h1>
   <div class="media" style="border: 2px solid black;">
     <img class="mr-3" src=".../64x64" alt="Generic placeholder image">
     <div class="media-body">
-      <h5 class="mt-0">Name: {{ user.name }}</h5>
-      <h5 class="mt-0">Email: {{ user.email }}</h5>
-      <h5 class="mt-0">Rating: {{ user.rating }}</h5>
+      <h5 class="mt-0">Name: {{ useraccount.name }}</h5>
+      <h5 class="mt-0">Email: {{ useraccount.email }}</h5>
+      <h5 class="mt-0">Rating: {{ useraccount.rating }}</h5>
     </div>
   </div>
 
@@ -38,26 +40,7 @@
             {% endfor %}
             {% else %}
             <h5 class="mt-0">You have no products</h5>
-            {% end if %}
-
-            <!--Limit set to 10 items a page-->
-                {% block pagination %}
-                    {% if is_paginated %}
-                        <div class="pagination">
-                            <span class="page-links">
-                                {% if page_obj.has_previous %}
-                                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
-                                {% endif %}
-                            <span class="page-current">
-                                <p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</p>
-                            </span>
-                            {% if page_obj.has_next %}
-                                <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
-                            {% endif %}
-                            </span>
-                        </div>
-                    {% endif %}
-                {% endblock %}
+            {% endif %}
         </div>
       </div>
     </div>
@@ -83,7 +66,7 @@
             {% endfor %}
             {% else %}
             <h5 class="mt-0">Wishlist is empty</h5>
-            {% end if %}
+            {% endif %} 
 
             <!--Limit set to 10 items a page-->
                 {% block pagination %}
@@ -106,7 +89,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
+    
+</body>
 
 
   {% endblock %}
