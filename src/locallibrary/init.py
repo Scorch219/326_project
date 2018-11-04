@@ -3,6 +3,7 @@ from umarket.models import UserAccount, Product
 from faker import Faker
 from datetime import timedelta
 import textwrap
+import random
 
 fake = Faker()
 
@@ -25,7 +26,8 @@ for i in (1,10):
 products = []
 for i in range(1, 10):
 	p_productID = fake.pystr(min_chars=5, max_chars=20)
-	p_userID = fake.uuid4()
+	new_id = random.shuffle(users)
+	p_userID = new_id[u_userID]
 	p_name = fake.sentence(nb_words=4, variable_nb_words=True, ext_word_list=None)
 	p_description = fake.paragraph(nb_sentences=3, variable_nb_sentences=True, ext_word_list=None)
 	p_price = fake.pydecimal(left_digits=2, right_digits=2, positive=True)
