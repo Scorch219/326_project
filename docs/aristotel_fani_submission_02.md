@@ -1,2 +1,8 @@
 
-For the second project, I was resposible for adding Django to our project that we created in the last submission. Once I added 
+Project 2 Individual Response
+
+For this second submission to the project, from what seemed trivial to add the components turned into a last-minute rush to throw spaghetti code together to make the project work “for now”. I, like my teammates, did not have simple lined out involvement with the project but added to it bit by bit on top of what my team members had contributed to. 
+
+In this particular project, I was responsible for initializing django inside our previous project submission. Once that was complete, I looked over the example code of the url mappings that needed to be implemented and added the url mappings that the template files and view functions would use while also going back and tweaking them once we had the completed files. Once my teammates completed their section of the project, I managed to tame some of the rough bugs the were giving us a headache when looking at them. Things did not get any better. 
+
+In the culmination of my frustration with the project, my teammate, Tajour, and I both looked at each other and agreed that we needed to scrap this and try over again. So in the matter of an hour, I followed the project outline step by step while using the previous project’s code to make a clean build and successfully got the home page to load on the server. Later on, I revised a few files that were responsible for the UI and managed to keep and clean and consistent look throughout the entire website. Also, created the init.sh file and modified the model.py file to add in a few necessary properties to the classes so we could link the products with the seller. And here and there modified a few bits of code in multiple files to make sure that our project was running smoothly. All in all I am just happy we got a working demo so far of our idea which is really cool. 
