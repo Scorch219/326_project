@@ -17,12 +17,13 @@
         </div>
       </div>
     </div>
-    <img src="/imgs/chick.jpg" alt="Chickens" height="150pt" width="150pt" style="float: left; margin: 0px 15px 15px 0px;" />
+    {% load static %}
+    <img src="{% static 'images/chick.jpg' %}" alt="Chickens" height="150pt" width="150pt" style="float: left; margin: 0px 15px 15px 0px;" />
     <div id="product-details">
-      <p id="name" style="margin: 15px 15px 15px 15px;">{{ product.name }}</p>
-      <p id="seller-rating" style="margin: 15px 15px 15px 15px;" >{{ product.seller_rating }}</p>
-      <p id="category" style="margin: 15px 15px 15px 15px;" >{{ product.category }}</p>
-      <p id="price" style="margin: 15px 15px 15px 15px;" >{{ product.price }}</p>
+      <p id="name" style="margin: 15px 15px 15px 15px;">Product Name: {{ product.name }}</p>
+      <p id="seller-rating" style="margin: 15px 15px 15px 15px;" >Product Seller Rating: {{ product.seller_rating }}</p>
+      <p id="category" style="margin: 15px 15px 15px 15px;" >Product Category: {{ product.category }}</p>
+      <p id="price" style="margin: 15px 15px 15px 15px;" >Product Price: {{ product.price }}</p>
     </div>
   </div>
   <p>Product's Description:</p>

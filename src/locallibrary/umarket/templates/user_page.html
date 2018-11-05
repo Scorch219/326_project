@@ -25,13 +25,14 @@
     <div class="container" style="border: 2px solid black;">
       <div class="col-4">
         <div class="row justify-content-start">
-        {% if user_page %}
-            {% for product in user_page %}
+        {% if user_list %}
+            {% for product in user_list %}
+
           <div class="media">
               {% load static %}
             <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/chick.jpg' %}" width=100px height=100px alt="Generic placeholder image">
             <div class="media-body">
-                <a href="{{ product.getabsolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
+                <a href="{{ product.get_absolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
               <h5 class="mt-0">Sellers' Rating: {{ product.seller_rating }}</h5>
               <!--Would we separate user/seller rating?-->
               <h5 class="mt-0">Product Category: {{ product.category }}</h5>
@@ -53,12 +54,13 @@
     <div class="container" style="border: 2px solid black;">
       <div class="col-4">
         <div class="row justify-content-start">
-        {% if user_page %}
-            {% for product in user_page %}
+        {% if user_list %}
+            {% for product in user_list %}
           <div class="media">
-            <img class="mr-3" src=".../64x64" alt="Generic placeholder image">
+              {% load static %}
+            <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/chick.jpg' %}" width=100px height=100px alt="Generic placeholder image">
             <div class="media-body">
-                <a href="{{ product.getabsolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
+                <a href="{{ product.get_absolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
               <h5 class="mt-0">Sellers' Rating: {{ user.rating }}</h5>
               <h5 class="mt-0">Product Category: {{ product.category }}</h5>
               <h5 class="mt-0">Product $$$: {{ product.price }}</h5>

@@ -48,6 +48,8 @@ print("\n Products:")
 for a in Product.objects.all():
     print(a)
 
+
+
 username = "admin326"
 password = "admin326"
 email = "admin@326.edu"

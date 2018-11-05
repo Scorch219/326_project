@@ -2,6 +2,8 @@
 
     <!--Dynamic product information-->
     {% block content %}
+
+
     <div class="row">
         <div class="col-2" style="border-right: 1px solid black; width:100%;">
             <form class="container" style="margin:auto; margin-top:24px; text-align: center">
@@ -20,14 +22,19 @@
                     <span class="glyphicon glyphicon-search"></span> Search
                 </button>
             </form>
+
+
             <!--Use JS to populate this next div-->
             <div class="container" style="border:1px solid black; max-height: 90%; margin:2px; padding:0; overflow-y:auto">
-             {%if browser_page %}
-              {% for product in browser_page %}
+
+             {% if browser_list %}
+
+              {% for product in browser_list %}
                 <div class="fillInLater row" style="border-bottom:1px solid black; margin:0px; min-width: 768px;">
-                    <div class="col-3"><img src="images/wet-dry-vacuum-cleaner.png" style="width:100%"></div>
+                    {% load static %}
+                    <div class="col-3"><img src="{% static 'images/wet-dry-vacuum-cleaner.png' %}" style="width:100%"></div>
                     <div class="col-6">
-                        <a href="{{ product.getabsolute_url }}"><label>{{ product.name }}</label></a>
+                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
                         <label style="float:right">{{ product.price }}</label>
                         <h6>Description: </h6>
                         <p>
@@ -45,9 +52,8 @@
                 </div>
                {% endfor %}
                {% else %}
-                 <label>There are no available Products.</label> 
+                 <label>There are no available Products.</label>
                {% endif %}
-            {% endblock %}
 
             <!--Limit set to 10 items a page-->
                 {% block pagination %}
@@ -67,78 +73,9 @@
                         </div>
                     {% endif %}
                 {% endblock %}
-                <!--<div class="fillInLater row" style="border-bottom:1px solid black; width:100%; margin:0px">
-                    <div class="col-3"><img src="images/wet-dry-vacuum-cleaner.png" style="width:100%"></div>
-                    <div class="col-6">
-                        <label>{{ prod_name }}</label>
-                        <label style="float:right">{{ prod_price }}</label>
-                        <h6>Description: </h6>
-                        <p>
-                            {{ prod_desc }}
-                        </p>
-                    </div>
-                    <div class="col-3" style="text-align: center">
-                        <button type="button">I'm interested!</button>
-                        <div style="bottom:0; position:absolute;">
-                            <h5>Seller Rating: </h5>
-                            <label>{{ user_rating }}</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="fillInLater row" style="border-bottom:1px solid black; width:100%; margin:0px">
-                    <div class="col-3"><img src="images/wet-dry-vacuum-cleaner.png" style="width:100%"></div>
-                    <div class="col-6">
-                        <label>{{ prod_name }}</label>
-                        <label style="float:right">{{ prod_price }}</label>
-                        <h6>Description: </h6>
-                        <p>
-                            {{ prod_desc }}
-                        </p>
-                    </div>
-                    <div class="col-3" style="text-align: center">
-                        <button type="button">I'm interested!</button>
-                        <div style="bottom:0; position:absolute;">
-                            <h5>Seller Rating: </h5>
-                            <label>{{ user_rating }}</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="fillInLater row" style="border-bottom:1px solid black; width:100%; margin:0px">
-                    <div class="col-3"><img src="images/wet-dry-vacuum-cleaner.png" style="width:100%"></div>
-                    <div class="col-6">
-                        <label>{{ prod_name }}</label>
-                        <label style="float:right">{{ prod_price }}</label>
-                        <h6>Description: </h6>
-                        <p>
-                            {{ prod_desc }}
-                        </p>
-                    </div>
-                    <div class="col-3" style="text-align: center">
-                        <button type="button">I'm interested!</button>
-                        <div style="bottom:0; position:absolute;">
-                            <h5>Seller Rating: </h5>
-                            <label>{{ user_rating }}</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="fillInLater row" style="border-bottom:1px solid black; width:100%; margin:0px">
-                    <div class="col-3"><img src="images/wet-dry-vacuum-cleaner.png" style="width:100%"></div>
-                    <div class="col-6">
-                        <label>{{ prod_name }}</label>
-                        <label style="float:right">{{ prod_price }}</label>
-                        <h6>Description: </h6>
-                        <p>
-                            {{ prod_desc }}
-                        </p>
-                    </div>
-                    <div class="col-3" style="text-align: center">
-                        <button type="button">I'm interested!</button>
-                        <div style="bottom:0; position:absolute;">
-                            <h5>Seller Rating: </h5>
-                            <label>{{ user_rating }}</label>
-                        </div>
-                    </div>
-                </div>-->
+
             </div>
-        </div>
-    </div>
+            </div>
+            </div>
+
+{% endblock %}
