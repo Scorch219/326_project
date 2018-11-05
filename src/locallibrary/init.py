@@ -9,7 +9,7 @@ fake = Faker()
 
 # Create Users
 users = []
-for i in (1,10):
+for i in range(1,10):
 	u_email = fake.ascii_email()
 	u_password = fake.password(length=10, special_chars=True, digits=True, upper_case=True, lower_case=True)
 	u_name = fake.first_name() + " " + fake.last_name()
@@ -26,8 +26,8 @@ for i in (1,10):
 products = []
 for i in range(1, 10):
 	p_productID = fake.pystr(min_chars=5, max_chars=20)
-	new_id = random.shuffle(users)
-	p_userID = new_id[u_userID]
+	p_userID = fake.uuid4()
+	# p_userID = users[fake.random_int(0, len(users)) - 1]
 	p_name = fake.sentence(nb_words=4, variable_nb_words=True, ext_word_list=None)
 	p_description = fake.paragraph(nb_sentences=3, variable_nb_sentences=True, ext_word_list=None)
 	p_price = fake.pydecimal(left_digits=2, right_digits=2, positive=True)
@@ -38,6 +38,15 @@ for i in range(1, 10):
 	product = Product(productID=p_productID, userID=p_userID, name=p_name, description=p_description, price=p_price, seller_rating=p_seller_rating, category=p_category)
 	product.save()
 	products.append(product)
+
+
+print("Users:")
+for g in UserAccount.objects.all():
+    print(g)
+
+print("\n Products:")
+for a in Product.objects.all():
+    print(a)
 
 username = "admin326"
 password = "admin326"
