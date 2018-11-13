@@ -56,3 +56,7 @@ def product_detail_view(request, primary_key):
 def about (request):
 	context={}
 	return render(request, 'about_page.html', context=context)
+
+def logout(request):
+    context={}
+    return render(request, 'logged_out.html', context=context)

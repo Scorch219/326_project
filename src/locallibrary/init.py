@@ -20,6 +20,7 @@ for i in range(1,10):
 	user = UserAccount(email=u_email, password=u_password, name=u_name, rating=u_rating, userID=u_userID)
 	user.save()
 	users.append(user)
+	print(f"  username: {u_email}, password: {u_password}")
 
 
 # Create Products
@@ -43,7 +44,6 @@ for i in range(1, 10):
 print("Users:")
 for g in UserAccount.objects.all():
     print(g)
-
 print("\n Products:")
 for a in Product.objects.all():
     print(a)
