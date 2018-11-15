@@ -1,6 +1,14 @@
 from django.shortcuts import render
 from umarket.models import UserAccount, Product
 from django.views import generic
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+
+
+class SignUp(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'
 
 # Create your views here.
 def index(request):
