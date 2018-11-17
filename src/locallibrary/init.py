@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from umarket.models import UserAccount, Product
+from umarket.models import Profile, Product
 from faker import Faker
 from datetime import timedelta
 import textwrap
@@ -11,16 +11,15 @@ fake = Faker()
 users = []
 for i in range(1,10):
 	u_email = fake.ascii_email()
-	u_password = fake.password(length=10, special_chars=True, digits=True, upper_case=True, lower_case=True)
-	u_name = fake.first_name() + " " + fake.last_name()
+	u_first_name = fake.first_name()
+	u_last_name = fake.last_name()
 	u_rating = fake.random_int(0, 5)
 	# u_profile_picture = fake.file_name(category=None, extension=".png")
 	u_userID = fake.uuid4()
 	# user = User(email=u_email, password=u_password, name=u_name, rating=u_rating, profile_picture=u_profile_picture, userID=u_userID)
-	user = UserAccount(email=u_email, password=u_password, name=u_name, rating=u_rating, userID=u_userID)
-	user.save()
-	users.append(user)
-	print(f"  username: {u_email}, password: {u_password}")
+	profile = Profile(first_name=u_first_name, last_name=u_last_name, rating=u_rating, userID=u_userID)
+	profile.save()
+	users.append(profile)
 
 
 # Create Products
@@ -39,15 +38,6 @@ for i in range(1, 10):
 	product = Product(productID=p_productID, userID=p_userID, name=p_name, description=p_description, price=p_price, seller_rating=p_seller_rating, category=p_category)
 	product.save()
 	products.append(product)
-
-
-print("Users:")
-for g in UserAccount.objects.all():
-    print(g)
-print("\n Products:")
-for a in Product.objects.all():
-    print(a)
-
 
 
 username = "admin326"
@@ -76,3 +66,31 @@ Run the django server with:
 =
 """
 print(message)
+
+
+# auth_users = []
+# print("Generated users:")
+# for u in users:
+#     username = u.first_name.lower()[0] + u.last_name.lower()
+#     email = f"{username}@326.edu"
+#     password = u.last_name
+#     user = User.objects.create_user(username, email, password)
+#     user.first_name = u.first_name
+#     user.last_name = u.last_name
+# 	user.save()
+# 	auth_users.append(user)
+# 	print(f" username: {username}, password: {password}")
+
+auth_users = []
+print("Generating Users:")
+for u in users:
+	username = u.first_name.lower()[0] + u.last_name.lower()
+	email = f"{username}@326.edu"
+	password = u.last_name
+	user = User.objects.create_user(username, email, password)
+	user.first_name = u.first_name
+	user.last_name = u.last_name
+	user.rating = u.rating 
+	user.save()
+	auth_users.append(user)
+	print(f" username: {username}, password: {password} ")

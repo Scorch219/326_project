@@ -22,7 +22,7 @@ Design Overview:
 
 Data model design overview:
 
-		We have two classes: the UserAccount class and a Product class. These are the main entities used in the database, to model the data that users will enter in our website. The UserAccount contains email, password, and name parameters to be used publicly and allow returning users to access their account. Rating is what will indicate that seller’s reputation, and provides a medium for other users to give feedback for each other. UserID is used interally to reference the user.
+		We have two classes: the Profile class and a Product class. These are the main entities used in the database, to model the data that users will enter in our website. The Profile contains email, password, and name parameters to be used publicly and allow returning users to access their account. Rating is what will indicate that seller’s reputation, and provides a medium for other users to give feedback for each other. UserID is used interally to reference the user.
 		As for the Product class, each product is given the parameters productID, userID, name, description, price, seller_rating, and category. Name, description, price, and category are used to provide information to the user about the product. Seller_rating contains the score of the seller’s reputation so interested buyers know if they should trust buying it.
 
              The important URL routes:

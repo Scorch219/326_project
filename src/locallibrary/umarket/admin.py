@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from umarket.models import UserAccount, Product
+from umarket.models import Profile, Product
 
-admin.site.register(UserAccount)
+admin.site.register(Profile)
 admin.site.register(Product)
