@@ -37,7 +37,7 @@ class Profile(models.Model):
 
 class Product(models.Model):
 	productID = models.CharField(max_length=100, blank=True, unique=True, default=uuid.uuid4)
-	userID = models.CharField(max_length=100, blank=True, unique=True, default=uuid.uuid4)
+	seller = models.ForeignKey("ProfileStruct", on_delete=models.SET_NULL, null=True)
 	name=models.CharField(max_length=100, help_text="Product")
 	description = models.TextField()
 	price = models.DecimalField(max_digits=4, decimal_places=2)
