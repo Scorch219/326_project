@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from umarket.models import Profile, Product
+from umarket.models import Profile, ProfileStruct, Product
 from faker import Faker
 from datetime import timedelta
 import textwrap
@@ -17,7 +17,7 @@ for i in range(1,10):
 	# u_profile_picture = fake.file_name(category=None, extension=".png")
 	u_userID = fake.uuid4()
 	# user = User(email=u_email, password=u_password, name=u_name, rating=u_rating, profile_picture=u_profile_picture, userID=u_userID)
-	profile = Profile(first_name=u_first_name, last_name=u_last_name, rating=u_rating, userID=u_userID)
+	profile = ProfileStruct(first_name=u_first_name, last_name=u_last_name, rating=u_rating, userID=u_userID)
 	profile.save()
 	users.append(profile)
 
@@ -88,9 +88,7 @@ for u in users:
 	email = f"{username}@326.edu"
 	password = u.last_name
 	user = User.objects.create_user(username, email, password)
-	user.first_name = u.first_name
-	user.last_name = u.last_name
-	user.rating = u.rating 
-	user.save()
-	auth_users.append(user)
+	profile = Profile(user=user, first_name=u.first_name, last_name=u.last_name, rating=u.rating, userID=u.userID)
+	profile.save()
+	auth_users.append(profile)
 	print(f" username: {username}, password: {password} ")

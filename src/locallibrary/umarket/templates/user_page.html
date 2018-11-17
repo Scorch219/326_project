@@ -10,7 +10,7 @@
     <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/chick.jpg' %}" width=100px height=100px alt="Generic placeholder image">
     <div class="media-body">
     {% if user.is_authenticated %}
-      <h5 class="mt-0">Name: {{ user.get_full_name }}</h5>
+      <h5 class="mt-0">Name: {{ user.profile.first_name }} {{ user.profile.last_name }}</h5>
       <h5 class="mt-0">Email: {{ user.email }}</h5>
       <h5 class="mt-0">Rating: {{ user.profile.rating }}</h5>
     {% else %}
