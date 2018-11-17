@@ -9,9 +9,15 @@
       {% load static %}
     <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/chick.jpg' %}" width=100px height=100px alt="Generic placeholder image">
     <div class="media-body">
-      <h5 class="mt-0">Name: {{ useraccount.name }}</h5>
-      <h5 class="mt-0">Email: {{ useraccount.email }}</h5>
-      <h5 class="mt-0">Rating: {{ useraccount.rating }}</h5>
+    {% if user.is_authenticated %}
+      <h5 class="mt-0">Name: {{ user.name }}</h5>
+      <h5 class="mt-0">Email: {{ user.email }}</h5>
+      <h5 class="mt-0">Rating: {{ user.rating }}</h5>
+    {% else %}
+        <h5 class="mt-0">Name: No Name</h5>
+        <h5 class="mt-0">Email: No Email</h5>
+        <h5 class="mt-0">Rating: No Rating</h5>
+    {% endif %}
     </div>
   </div>
 
