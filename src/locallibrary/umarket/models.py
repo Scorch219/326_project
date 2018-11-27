@@ -24,9 +24,6 @@ class Profile(models.Model):
 	def __str__(self):
 		return "%s - %s" % (self.first_name, self.last_name )
 
-	def getRating(self):
-		return self.rating
-
 	def get_absolute_url(self):
 		return reverse("user-detail", args=[str(self.id)] )
 
@@ -53,6 +50,13 @@ class Product(models.Model):
 
 	def get_absolute_url(self):
 		return reverse("product-detail", args=[str(self.id)])
+		
+		
+class Category(models.Model):
+	name = models.CharField(max_length=100, unique=True, help_text="Category")
+	
+	def __str__(self):
+		return self.name
 
 #class MeetUpLocation(models.Model):
 #	location = models.CharField(max_length=100, help_text="Location meetup")
