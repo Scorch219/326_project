@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from umarket.models import Profile, ProfileStruct, Product
+from umarket.models import Profile, ProfileStruct, Product, Category
 from faker import Faker
 from datetime import timedelta
 import textwrap
@@ -38,6 +38,32 @@ for i in range(1, 10):
 	product = Product(productID=p_productID, seller=p_seller, name=p_name, description=p_description, price=p_price, seller_rating=p_seller_rating, category=p_category)
 	product.save()
 	products.append(product)
+
+# Create Categories
+categories = [
+	Category(name='Animal Care'),
+	Category(name='Arts and Crafts'),
+	Category(name='Automotive and Tansportation'),
+	Category(name='Beauty and personal products'),
+	Category(name='Books'),
+	Category(name='Class Materials'),
+	Category(name='Clothing'),
+	Category(name='Electronics'),
+	Category(name='Entertainment'),
+	Category(name='Hardware'),
+	Category(name='Houseware'),
+	Category(name='Healthcare'),
+    Category(name='Kitchenware'),
+    Category(name='Music'),
+	Category(name='Miscellaneous'),
+	Category(name='Office supplies'),
+	Category(name='Sports'),
+	Category(name='Umass')
+]
+
+# Save the categories to the database
+for category in categories:
+    category.save()
 
 
 username = "admin326"
