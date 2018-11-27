@@ -37,16 +37,6 @@ class ProductDetailView(generic.DetailView):
 	model = Product
 	template_name = "product_page.html"
 
-
-
-# def product_detail_view(request, primary_key):
-#     try:
-#         product = Product.objects.get(pk=primary_key)
-#     except product.DoesNotExist:
-#         raise Http404('Book does not exist')
-#
-#     return render(request, 'product_page.html', context={'product': product})
-
 def product_detail_view(request, primary_key):
     product = Product()
     try:

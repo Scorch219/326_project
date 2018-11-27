@@ -24,6 +24,9 @@ class Profile(models.Model):
 	def __str__(self):
 		return "%s - %s" % (self.first_name, self.last_name )
 
+	def getRating(self):
+		return self.rating
+
 	def get_absolute_url(self):
 		return reverse("user-detail", args=[str(self.id)] )
 

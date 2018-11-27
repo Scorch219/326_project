@@ -29,10 +29,10 @@
       </div>
     </div>
     <div class="container" style="border: 2px solid black;">
-      <div class="col-4">
+      <div class="col-12">
         <div class="row justify-content-start">
 
-        //TODO: Only show what they are selling
+        <!-- //TODO: Only show what they are selling -->
         {% if user_list %}
             {% for product in user_list %}
 
@@ -46,7 +46,9 @@
               <h5 class="mt-0">Product Category: {{ product.category }}</h5>
               <h5 class="mt-0">Product $$$: {{ product.price }}</h5>
               <h5 class="mt-0">Description: {{ product.description }} </h5>
+              <br>
             </div>
+
           </div>
             {% endfor %}
             {% else %}
@@ -60,9 +62,9 @@
   <h3>Wishlist</h3>
   <div class="row align-itmes-end">
     <div class="container" style="border: 2px solid black;">
-      <div class="col-4">
+      <div class="col-12">
         <div class="row justify-content-start">
-        //TODO: Only show what they favorited.
+        <!-- //TODO: Only show what they favorited. -->
         {% if user_list %}
             {% for product in user_list %}
           <div class="media">
@@ -70,10 +72,11 @@
             <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/chick.jpg' %}" width=100px height=100px alt="Generic placeholder image">
             <div class="media-body">
                 <a href="{{ product.get_absolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
-              <h5 class="mt-0">Sellers' Rating: {{ user.rating }}</h5>
+              <h5 class="mt-0">Sellers' Rating: {{ product.seller_rating }}</h5>
               <h5 class="mt-0">Product Category: {{ product.category }}</h5>
               <h5 class="mt-0">Product $$$: {{ product.price }}</h5>
               <h5 class="mt-0">Description: {{ product.description }}</h5>
+              <br>
             </div>
           </div>
             {% endfor %}

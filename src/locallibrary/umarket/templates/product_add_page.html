@@ -2,68 +2,19 @@
 
 {% block content %}
 
-    <form action="" method="post">
-        {% csrf_token %}
-        <table>
-        {{form.as_table}}
-        </table>
-        <input type="submit" value="Submit">
-    </form>
+    <h1 style="text-align:center;">Add a Product</h1>
+    <br>
 
-  <!-- Main Content -->
-  <h1 style="text-align:center;">Add a Product</h1>
-  <br>
-  <br>
-  <br>
+    <center>
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+            {{form.as_table}}
+            </table>
+            <br>
+            <center><input type="submit" value="Submit"></center>
+            <br>
+        </form>
+    </center>
 
-  <!--Dynamically adding in product information-->
-  <!-- <div id="product" style="margin: 20pt;"> -->
-    <!--<div class='page-header'>
-      <div class='btn-toolbar float-right'>
-        <div class='btn-group'>
-          <button type='button' class='btn btn-primary'>I'm Interested</button>
-        </div>
-      </div>
-    </div>-->
-    <!-- {% load static %} -->
-
-
-    <!-- <div id="product-details">
-	  <p id="image" style="margin: 15px 15px 15px 15px;">Product Image: <form action="" method="post">
-		{% csrf_token %}
-		{{ form }}
-		<input type="button" value=""></form>
-		<form action="" method="post">
-		{% csrf_token %}
-		{{ form }}
-		<input type="imagefield" value=""></form>
-	  </p>
-      <p id="name" style="margin: 15px 15px 15px 15px;">Product Name: <form action="" method="post">
-		{% csrf_token %}
-		{{ form }}
-		<input type="charfield" value=""></form>
-	  </p>
-      <p id="seller-rating" style="margin: 15px 15px 15px 15px;" >Product Seller Rating: <form action="" method="post">
-		{% csrf_token %}
-		{{ form }}
-		<input type="charfield" value=""></form>
-	  </p>
-      <p id="category" style="margin: 15px 15px 15px 15px;" >Product Category: <form action="" method="post">
-		{% csrf_token %}
-		{{ form }}
-		<input type="charfield" value=""></form>
-	  </p>
-      <p id="price" style="margin: 15px 15px 15px 15px;" >Product Price: <form action="" method="post">
-		{% csrf_token %}
-		{{ form }}
-		<input type="charfield" value=""></form>
-	  </p>
-    </div>
-  </div>
-  <p>Product's Description:</p>
-  <p id="description" style="margin: 15px 15px 15px 15px;" > <form action="" method="post">
-		{% csrf_token %}
-		{{ form }}
-		<input type="textfield" value=""></form>
-  </p> -->
 {% endblock %}
