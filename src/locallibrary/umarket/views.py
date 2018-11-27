@@ -61,3 +61,7 @@ def about (request):
 def logout(request):
     context={}
     return render(request, 'logged_out.html', context=context)
+
+def product(request):
+    context={}
+    return render(request, 'product_add_page.html', context=context)

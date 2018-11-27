@@ -9,4 +9,5 @@ urlpatterns = [
 	path("browser_page/", views.BrowserView.as_view(), name="browser-page"),
 	path("user/", views.ProductListView2.as_view(), {'user_page.html': '/umarket/templates/'}, name="user"),
 	path("about_page/", views.about, name="about-page"),
+	path("new_product/", views.product, name="new-product"),
 ]
