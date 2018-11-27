@@ -23,21 +23,6 @@ for i in range(1,10):
 
 
 # Create Products
-products = []
-for i in range(1, 10):
-	p_productID = fake.pystr(min_chars=5, max_chars=20)
-	# p_userID = fake.uuid4()
-	p_seller = users[fake.random_int(0, len(users)) - 1]
-	p_name = fake.sentence(nb_words=4, variable_nb_words=True, ext_word_list=None)
-	p_description = fake.paragraph(nb_sentences=3, variable_nb_sentences=True, ext_word_list=None)
-	p_price = fake.pydecimal(left_digits=2, right_digits=2, positive=True)
-	# p_picture = fake.file_name(category=None, extension=".png")
-	p_seller_rating = fake.random_int(0, 5)
-	p_category = fake.word(ext_word_list=None)
-	# product = Product(productID=p_productID, userID=p_userID, name=p_name, description=p_description, price=p_price, picture=p_picture, seller_rating=p_seller_rating, category=p_category)
-	product = Product(productID=p_productID, seller=p_seller, name=p_name, description=p_description, price=p_price, seller_rating=p_seller_rating, category=p_category)
-	product.save()
-	products.append(product)
 
 # Create Categories
 categories = [
@@ -64,6 +49,22 @@ categories = [
 # Save the categories to the database
 for category in categories:
     category.save()
+
+products = []
+for i in range(1, 10):
+	p_productID = fake.pystr(min_chars=5, max_chars=20)
+	# p_userID = fake.uuid4()
+	p_seller = users[fake.random_int(0, len(users)) - 1]
+	p_name = fake.sentence(nb_words=4, variable_nb_words=True, ext_word_list=None)
+	p_description = fake.paragraph(nb_sentences=3, variable_nb_sentences=True, ext_word_list=None)
+	p_price = fake.pydecimal(left_digits=2, right_digits=2, positive=True)
+	# p_picture = fake.file_name(category=None, extension=".png")
+	p_seller_rating = fake.random_int(0, 5)
+	p_category = categories[fake.random_int(0, len(categories)) - 1]
+	# product = Product(productID=p_productID, userID=p_userID, name=p_name, description=p_description, price=p_price, picture=p_picture, seller_rating=p_seller_rating, category=p_category)
+	product = Product(productID=p_productID, seller=p_seller, name=p_name, description=p_description, price=p_price, seller_rating=p_seller_rating, category=p_category)
+	product.save()
+	products.append(product)
 
 
 username = "admin326"
