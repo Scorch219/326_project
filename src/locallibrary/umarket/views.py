@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from umarket.models import Profile, Product
 from django.views import generic
+from django.views.generic.edit import CreateView
 
 
 # Create your views here.
@@ -24,6 +25,11 @@ class ProductListView2(generic.ListView):
     template_name = "user_page.html"
     context_object_name = 'user_list'
     paginate_by = 10
+
+class ProductAdd(CreateView):
+    model = Product
+    template_name = "product_add_page.html"
+    fields = ['name', 'description', 'price', 'category', 'seller_rating']
 
 
 
