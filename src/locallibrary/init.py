@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from umarket.models import Profile, ProfileStruct, Product, Category
+from umarket.models import Profile, ProfileStruct, Product, ProductCategory
 from faker import Faker
 from datetime import timedelta
 import textwrap
@@ -22,34 +22,33 @@ for i in range(1,10):
 	users.append(profile)
 
 
-# Create Products
-
 # Create Categories
 categories = [
-	Category(name='Animal Care'),
-	Category(name='Arts and Crafts'),
-	Category(name='Automotive and Tansportation'),
-	Category(name='Beauty and personal products'),
-	Category(name='Books'),
-	Category(name='Class Materials'),
-	Category(name='Clothing'),
-	Category(name='Electronics'),
-	Category(name='Entertainment'),
-	Category(name='Hardware'),
-	Category(name='Houseware'),
-	Category(name='Healthcare'),
-	Category(name='Kitchenware'),
-	Category(name='Music'),
-	Category(name='Miscellaneous'),
-	Category(name='Office supplies'),
-	Category(name='Sports'),
-	Category(name='Umass')
+	ProductCategory(name='Animal Care'),
+	ProductCategory(name='Arts and Crafts'),
+	ProductCategory(name='Automotive and Tansportation'),
+	ProductCategory(name='Beauty and personal products'),
+	ProductCategory(name='Books'),
+	ProductCategory(name='Class Materials'),
+	ProductCategory(name='Clothing'),
+	ProductCategory(name='Electronics'),
+	ProductCategory(name='Entertainment'),
+	ProductCategory(name='Hardware'),
+	ProductCategory(name='Houseware'),
+	ProductCategory(name='Healthcare'),
+	ProductCategory(name='Kitchenware'),
+	ProductCategory(name='Music'),
+	ProductCategory(name='Miscellaneous'),
+	ProductCategory(name='Office supplies'),
+	ProductCategory(name='Sports'),
+	ProductCategory(name='Umass')
 ]
 
 # Save the categories to the database
 for category in categories:
     category.save()
 
+# Create Products
 products = []
 for i in range(1, 10):
 	p_productID = fake.pystr(min_chars=5, max_chars=20)
@@ -61,7 +60,6 @@ for i in range(1, 10):
 	# p_picture = fake.file_name(category=None, extension=".png")
 	p_seller_rating = fake.random_int(0, 5)
 	p_category = categories[fake.random_int(0, len(categories)) - 1]
-	# product = Product(productID=p_productID, userID=p_userID, name=p_name, description=p_description, price=p_price, picture=p_picture, seller_rating=p_seller_rating, category=p_category)
 	product = Product(productID=p_productID, seller=p_seller, name=p_name, description=p_description, price=p_price, seller_rating=p_seller_rating, category=p_category)
 	product.save()
 	products.append(product)
