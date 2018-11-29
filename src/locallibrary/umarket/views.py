@@ -14,6 +14,7 @@ class UserDetailView(generic.DetailView):
     model = Profile
     template_name = "user_page.html"
 
+
 class BrowserView(generic.ListView):
     model = Product
     template_name = "browser_page.html"
@@ -25,6 +26,13 @@ class ProductListView2(generic.ListView):
     template_name = "user_page.html"
     context_object_name = 'user_list'
     paginate_by = 10
+    def get_queryset(self): return ( Product.objects.filter(seller=self.request.user.profile) )
+    def get_context_data(self, **kwargs):
+        context = super(ProductListView2, self).get_context_data(**kwargs)
+        context['favorited'] = Product.objects.filter(favorited=self.request.user.profile)
+        # Add any other variables to the context here
+        ...
+        return context
 
 class ProductAdd(CreateView):
     model = Product

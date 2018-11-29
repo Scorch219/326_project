@@ -48,21 +48,7 @@ categories = [
 for category in categories:
     category.save()
 
-# Create Products
-products = []
-for i in range(1, 10):
-	p_productID = fake.pystr(min_chars=5, max_chars=20)
-	# p_userID = fake.uuid4()
-	p_seller = users[fake.random_int(0, len(users)) - 1]
-	p_name = fake.sentence(nb_words=4, variable_nb_words=True, ext_word_list=None)
-	p_description = fake.paragraph(nb_sentences=3, variable_nb_sentences=True, ext_word_list=None)
-	p_price = fake.pydecimal(left_digits=2, right_digits=2, positive=True)
-	# p_picture = fake.file_name(category=None, extension=".png")
-	p_seller_rating = fake.random_int(0, 5)
-	p_category = categories[fake.random_int(0, len(categories)) - 1]
-	product = Product(productID=p_productID, seller=p_seller, name=p_name, description=p_description, price=p_price, seller_rating=p_seller_rating, category=p_category)
-	product.save()
-	products.append(product)
+
 
 
 username = "admin326"
@@ -93,19 +79,6 @@ Run the django server with:
 print(message)
 
 
-# auth_users = []
-# print("Generated users:")
-# for u in users:
-#     username = u.first_name.lower()[0] + u.last_name.lower()
-#     email = f"{username}@326.edu"
-#     password = u.last_name
-#     user = User.objects.create_user(username, email, password)
-#     user.first_name = u.first_name
-#     user.last_name = u.last_name
-# 	user.save()
-# 	auth_users.append(user)
-# 	print(f" username: {username}, password: {password}")
-
 auth_users = []
 print("Generating Users:")
 for u in users:
@@ -117,3 +90,21 @@ for u in users:
 	profile.save()
 	auth_users.append(profile)
 	print(f" username: {username}, password: {password} ")
+
+
+# Create Products
+products = []
+for i in range(1, 10):
+	p_productID = fake.pystr(min_chars=5, max_chars=20)
+	# p_userID = fake.uuid4()
+	p_seller = auth_users[fake.random_int(0, len(auth_users)) - 1]
+	p_favorited = auth_users[fake.random_int(0, len(auth_users)) - 1]
+	p_name = fake.sentence(nb_words=4, variable_nb_words=True, ext_word_list=None)
+	p_description = fake.paragraph(nb_sentences=3, variable_nb_sentences=True, ext_word_list=None)
+	p_price = fake.pydecimal(left_digits=2, right_digits=2, positive=True)
+	# p_picture = fake.file_name(category=None, extension=".png")
+	p_seller_rating = fake.random_int(0, 5)
+	p_category = categories[fake.random_int(0, len(categories)) - 1]
+	product = Product(productID=p_productID, seller=p_seller, favorited=p_favorited, name=p_name, description=p_description, price=p_price, seller_rating=p_seller_rating, category=p_category)
+	product.save()
+	products.append(product)
