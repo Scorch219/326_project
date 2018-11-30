@@ -48,7 +48,7 @@ class Product(models.Model):
 	name=models.CharField(max_length=100)
 	description = models.TextField()
 	price = models.DecimalField(max_digits=4, decimal_places=2)
-	picture = models.ImageField(upload_to="umarket/static/images", default='static/images/chick.jpg')
+	picture = models.ImageField(upload_to="images/", null=True, blank=True)
 	seller_rating = models.IntegerField()
 	category = models.ForeignKey(ProductCategory, on_delete=models.SET_NULL, null=True)
 

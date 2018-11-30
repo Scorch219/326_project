@@ -37,8 +37,12 @@
             {% for product in user_list %}
 
           <div class="media">
-              {% load static %}
-            <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/chick.jpg' %}" width=100px height=100px alt="Generic placeholder image">
+              {% if product.picture %}
+                  <img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="100pt" width="100pt" style="border-radius: 50%;" />
+              {% else %}
+                  {% load static %}
+                  <img src="{% static 'images/chick.jpg' %}" alt="Chicken" height="100pt" width="100pt" style="border-radius: 50%;" />
+              {% endif %}
             <div class="media-body">
                 <a href="{{ product.get_absolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
               <h5 class="mt-0">Sellers' Rating: {{ product.seller_rating }}</h5>
@@ -68,8 +72,12 @@
         {% if favorited %}
             {% for product in favorited  %}
           <div class="media">
-              {% load static %}
-            <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/chick.jpg' %}" width=100px height=100px alt="Generic placeholder image">
+              {% if product.picture %}
+                  <img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="100pt" width="100pt" style="border-radius: 50%;" />
+              {% else %}
+                  {% load static %}
+                  <img src="{% static 'images/chick.jpg' %}" alt="Chicken" height="100pt" width="100pt" style="border-radius: 50%;" />
+              {% endif %}
             <div class="media-body">
                 <a href="{{ product.get_absolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
               <h5 class="mt-0">Sellers' Rating: {{ product.seller_rating }}</h5>

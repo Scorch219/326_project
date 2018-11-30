@@ -42,7 +42,6 @@ class ProductAdd(CreateView):
     fields = ['name', 'picture', 'description', 'price', 'category']
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        # things
         self.object.seller_rating = self.request.user.profile.rating
         self.object.seller = self.request.user.profile
         self.object.save()
@@ -61,7 +60,7 @@ def favorite(request, product_id):
 class ProductDetailView(generic.DetailView):
 	model = Product
 	template_name = "product_page.html"
-#
+
 # def product_detail_view(request, primary_key):
 #     product = Product()
 #     try:

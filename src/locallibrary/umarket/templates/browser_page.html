@@ -31,8 +31,14 @@
 
               {% for product in browser_list %}
                 <div class="fillInLater row" style="border-bottom:1px solid black; margin:0px; min-width: 768px;">
-                    {% load static %}
-                    <div class="col-3"><img src="{% static 'images/wet-dry-vacuum-cleaner.png' %}" style="width:100%"></div>
+
+                    <div class="col-3">{% if product.picture %}
+                        <img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="100pt" width="100pt" style="border-radius: 50%;" />
+                    {% else %}
+                        {% load static %}
+                        <center><img src="{% static 'images/chick.jpg' %}" alt="Chicken" height="75pt" width="75pt" style="border-radius: 50%;" /></center>
+                    {% endif %}
+                    </div>
                     <div class="col-6">
                         <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
                         <label style="float:right">{{ product.price }}</label>
@@ -49,6 +55,7 @@
                             <!--Would seller rating be different for user rating?-->
                         </div>
                     </div>
+                    <br>
                 </div>
                {% endfor %}
                {% else %}

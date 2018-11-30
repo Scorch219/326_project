@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body style="min-height: 125vh; overflow: auto; position: relative;  margin: 0;">
         <div class="col-md-12">
         {% block navbar %}
 
@@ -43,15 +43,16 @@
 
       <!-- Footer -->
       {% block footer %}
-      <footer class="bg-dark" style="color:aliceblue; position: static; bottom:0; width:100%;">
-        <ul class="list-inline text-center ">
-          <li class="list-inline-item"><a href="{% url 'about-page' %}">About</a></li>
-        </ul>
-      </footer>
+
+
+
+          <footer class="bg-dark" style="color:aliceblue; position: absolute; bottom:0%; width:100%;">
+            <ul class="list-inline text-center ">
+              <li class="list-inline-item"><a href="{% url 'about-page' %}">About</a></li>
+            </ul>
+          </footer>
+
       {% endblock %}
 
-
 </body>
-
-
 </html>
