@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from umarket.models import Profile, Product
 from django.views import generic
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, ModelFormMixin
 
 
 # Create your views here.
@@ -26,6 +26,7 @@ class ProductListView2(generic.ListView):
     template_name = "user_page.html"
     context_object_name = 'user_list'
     paginate_by = 10
+
     def get_queryset(self): return ( Product.objects.filter(seller=self.request.user.profile) )
     def get_context_data(self, **kwargs):
         context = super(ProductListView2, self).get_context_data(**kwargs)
@@ -37,8 +38,15 @@ class ProductListView2(generic.ListView):
 class ProductAdd(CreateView):
     model = Product
     template_name = "product_add_page.html"
-    fields = ['name', 'description', 'price', 'category', 'seller_rating']
+    fields = ['name', 'picture', 'description', 'price', 'category']
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        # things
+        self.object.seller_rating = self.request.user.profile.rating
+        self.object.seller = self.request.user.profile
+        self.object.save()
 
+        return super(ModelFormMixin, self).form_valid(form)
 
 
 class ProductDetailView(generic.DetailView):

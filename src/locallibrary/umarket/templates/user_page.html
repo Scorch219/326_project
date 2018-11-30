@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <h3>Item Listing</h3>
+  <h3>Products Selling</h3>
   <div class="row align-itmes-center">
     <div class="container">
       <div class="row justify-content-end">
@@ -44,7 +44,7 @@
               <h5 class="mt-0">Sellers' Rating: {{ product.seller_rating }}</h5>
               <!--Would we separate user/seller rating?-->
               <h5 class="mt-0">Product Category: {{ product.category }}</h5>
-              <h5 class="mt-0">Product $$$: {{ product.price }}</h5>
+              <h5 class="mt-0">Price: ${{ product.price }}</h5>
               <h5 class="mt-0">Description: {{ product.description }} </h5>
               <br>
             </div>
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-  <h3>Wishlist</h3>
+  <h3>Products Favorited</h3>
   <div class="row align-itmes-end">
     <div class="container" style="border: 2px solid black;">
       <div class="col-12">
@@ -74,7 +74,7 @@
                 <a href="{{ product.get_absolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
               <h5 class="mt-0">Sellers' Rating: {{ product.seller_rating }}</h5>
               <h5 class="mt-0">Product Category: {{ product.category }}</h5>
-              <h5 class="mt-0">Product $$$: {{ product.price }}</h5>
+              <h5 class="mt-0">Price: ${{ product.price }}</h5>
               <h5 class="mt-0">Description: {{ product.description }}</h5>
               <br>
             </div>

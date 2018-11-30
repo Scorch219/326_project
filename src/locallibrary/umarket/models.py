@@ -44,11 +44,11 @@ class ProductCategory(models.Model):
 class Product(models.Model):
 	productID = models.CharField(max_length=100, blank=True, unique=True, default=uuid.uuid4)
 	seller = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, related_name='%(class)s_requests_created')
-	favorited = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, )
+	favorited = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
 	name=models.CharField(max_length=100)
 	description = models.TextField()
 	price = models.DecimalField(max_digits=4, decimal_places=2)
-	#picture = models.ImageField(upload_to="where are we putting these", height_field=100, width_field=100, max_length=100)
+	picture = models.ImageField(upload_to="umarket/static/images", default='static/images/chick.jpg')
 	seller_rating = models.IntegerField()
 	category = models.ForeignKey(ProductCategory, on_delete=models.SET_NULL, null=True)
 
