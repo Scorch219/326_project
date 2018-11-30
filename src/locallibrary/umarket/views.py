@@ -2,6 +2,7 @@ from django.shortcuts import render
 from umarket.models import Profile, Product
 from django.views import generic
 from django.views.generic.edit import CreateView, ModelFormMixin
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -48,23 +49,31 @@ class ProductAdd(CreateView):
 
         return super(ModelFormMixin, self).form_valid(form)
 
+def favorite(request, product_id):
+    if product_id:
+        product = Product.objects.get(id=product_id)
+        product.favorited = request.user.profile
+        product.save()
+        return HttpResponseRedirect('/umarket/products/%s' % product_id)
+    else:
+        return HttpResponseRedirect('/browser_page')
 
 class ProductDetailView(generic.DetailView):
 	model = Product
 	template_name = "product_page.html"
-
-def product_detail_view(request, primary_key):
-    product = Product()
-    try:
-        products = Product.objects.all()
-        for p in products:
-            if primary_key in p.productID:
-                product = p
-
-    except product.DoesNotExist:
-        raise Http404('Book does not exist')
-
-    return render(request, 'product_page.html', context={'product': product})
+#
+# def product_detail_view(request, primary_key):
+#     product = Product()
+#     try:
+#         products = Product.objects.all()
+#         for p in products:
+#             if primary_key in p.productID:
+#                 product = p
+#
+#     except product.DoesNotExist:
+#         raise Http404('Book does not exist')
+#
+#     return render(request, 'product_page.html', context={'product': product})
 
 def about (request):
 	context={}

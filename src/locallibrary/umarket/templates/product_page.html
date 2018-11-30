@@ -13,7 +13,8 @@
     <div class='page-header'>
       <div class='btn-toolbar float-right'>
         <div class='btn-group'>
-          <button type='button' class='btn btn-primary'>I'm Interested</button>
+
+          <a href="{% url 'favorite' product.id %}"><button type='button' class='btn btn-primary'>I'm Interested</button></a>
         </div>
       </div>
     </div>
