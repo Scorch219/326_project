@@ -3,6 +3,7 @@ from umarket.models import Profile, Product
 from django.views import generic
 from django.views.generic.edit import CreateView, ModelFormMixin
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -48,6 +49,8 @@ class ProductAdd(CreateView):
 
         return super(ModelFormMixin, self).form_valid(form)
 
+#requires guest/unauthorized user to login if they press "I'm Interested" for wishlist.
+@login_required
 def favorite(request, product_id):
     if product_id:
         product = Product.objects.get(id=product_id)
