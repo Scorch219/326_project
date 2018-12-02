@@ -1,0 +1,32 @@
+@charset "utf-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:200,500,700,300);
+
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+
+/* Common container */
+html{-webkit-touch-callout: none; -webkit-tap-highlight-color: rgba(0,0,0,0)}
+a{text-decoration: none}a img{border: 0 none}input,select{outline-style: none}strong,b{font-weight: bold}button{font-family: 'Roboto', sans-serif; cursor:pointer}.clear{clear:both}
+
+/* Layout */
+body{font-family: 'Roboto', sans-serif; background-color:#E2E2E2}
+
+.wrap{position: relative; margin:0 auto; width: 1100px}
+.top ul{position: absolute; top: 25px; right: 184px; height: 21px}
+
+/* Color for login button, changes color when hovering over it*/
+.top li span.top_login{padding: 0 10px; background-color: #FFA200; border: 1px solid #F89F00; text-decoration: none !important; color:#883600}
+.top li span.top_login:hover{background-color: #FF9000; border-color: #F08800; color: #883600}
+
+/* Navbar Layout */
+/* Ignore most of code as it is a big work in progress */
+.nav{height: 53px; min-width: 1100px; background-color: #2D2C2C; border-bottom: 1px solid #1A140D}
+.nav li{display: block; float: left; width: 157px; height: 53px; line-height: 53px; font-size: 18px; font-weight: 500; text-align: center; letter-spacing: -0.03em; color: #F3F2EE}
+.nav li a{text-decoration: none; color: #F3F2EE}
+.nav_sub{position: absolute; left: 0; top: 123px; width: 100%; min-width: 1100px; height: 140px; background-color: #2E2317; border-bottom: 1px solid #1A140D; z-index: 1}
+.nav_sub ul{float: left; width: 157px; height: 140px}
+.nav_sub li{display: block; width: 157px; height: 26px; line-height: 26px; font-size: 14px; font-weight: 400; text-align: center; letter-spacing: -0.03em; color: #959595}
+.nav_sub li a{text-decoration: none; color: #959595}
+.nav_sub li a:hover{color: #FAFAFA}
+.nav li.on,.nav_sub ul.on{background-color: #221A11}
+.nav li.on a{color: #FFDB1D}
