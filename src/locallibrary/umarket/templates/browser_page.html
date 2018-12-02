@@ -33,7 +33,7 @@
                 <div class="fillInLater row" style="border-bottom:1px solid black; margin:0px; min-width: 768px;">
 
                     <div class="col-3">{% if product.picture %}
-                        <img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="100pt" width="100pt" style="border-radius: 50%;" />
+                        <center><img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="75pt" width="75pt" style="border-radius: 50%;" /></center>
                     {% else %}
                         {% load static %}
                         <center><img src="{% static 'images/chick.jpg' %}" alt="Chicken" height="75pt" width="75pt" style="border-radius: 50%;" /></center>
