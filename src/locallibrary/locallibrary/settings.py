@@ -24,7 +24,6 @@ SECRET_KEY = 'ydwoyn(&ppnx5mg^lk&-f3kivnrl$0_k^b&+%k#lpk)efgfz-0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -130,6 +129,10 @@ if DEBUG:
      os.path.join(BASE_DIR, 'static/static'),
      )
 
-# Redirect to home URL after login (Default redirects to /accounts/profile/)
+# Redirect authenticated users to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/umarket/user/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
+
+# Redirect unauthorized users/guests to login page if pressing "I'm interested" or other buttons.
+# URL for @login_required decorator to use
+LOGIN_URL = '/accounts/login'
