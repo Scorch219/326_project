@@ -23,7 +23,7 @@
         <img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="150pt" width="150pt" style="float: left; margin: 0px 15px 15px 0px;" />
     {% else %}
         {% load static %}
-        <img src="{% static 'images/chick.jpg' %}" alt="Chicken" height="150pt" width="150pt" style="float: left; margin: 0px 15px 15px 0px;" />
+        <img src="{% static 'images/No_Image.png' %}" alt="No Image" height="150pt" width="150pt" style="float: left; margin: 0px 15px 15px 0px;" />
     {% endif %}
     <div id="product-details">
       <p id="name" style="margin: 15px 15px 15px 15px;">Product Name: {{ product.name }}</p>

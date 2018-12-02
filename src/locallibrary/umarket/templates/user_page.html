@@ -41,7 +41,7 @@
                   <img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="100pt" width="100pt" style="border-radius: 50%;" />
               {% else %}
                   {% load static %}
-                  <img src="{% static 'images/chick.jpg' %}" alt="Chicken" height="100pt" width="100pt" style="border-radius: 50%;" />
+                  <img src="{% static 'images/No_Image.png' %}" alt="No Image" height="100pt" width="100pt" style="border-radius: 50%;" />
               {% endif %}
             <div class="media-body">
                 <a href="{{ product.get_absolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
