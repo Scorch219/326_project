@@ -42,9 +42,6 @@
 </center>
 -->
 
-<head>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-</head>
 
 <body class="loginpage">
 
@@ -61,9 +58,8 @@
   {% endif %}
   {% endif %}
 
-  
   <div class="loginbox">
-    <!--<img src="avatar.png" class="avatar">-->
+    <img src="{% static 'images/avatar.png' %}" class="avatar">
     <h1>Welcome Back!</h1>
     <form method="post" action="{% url 'login' %}">
       {% csrf_token %}

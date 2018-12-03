@@ -43,6 +43,14 @@ body{
 }
 
 /* Login Page */
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: 110px;
+}
 .loginpage{
     width: 100%;
     height: 100%;
@@ -56,7 +64,7 @@ body{
     top: 50%;
     left: 50%;
     position: absolute;
-    transform: translate(-50%, 25%);
+    transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 70px 30px;
 }
@@ -90,7 +98,7 @@ h1{
     border: none;
     outline: none;
     height: 40px;
-    background: #fb2525;
+    background: maroon;
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
@@ -121,6 +129,10 @@ footer{
     margin: 0;
     bottom: 0;
     width: 100%; 
+    flex-direction: 0;
+}
+.content{
+    flex: auto;
 }
 
 /* Homepage template. */
@@ -130,11 +142,15 @@ footer{
     max-height: 365px !important;
     text-align: center
 }
-
-/* Background image for homepage. */
 .homepage{
     width: 100%;
     height: 100%;
     background-image: url( '/static/images/umass_fade2.jpg' );
     background-repeat: no-repeat;
+}
+.card{
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+    top: 50px
 }
