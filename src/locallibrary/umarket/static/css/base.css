@@ -125,7 +125,7 @@ h1{
 footer{
     text-align: center;
     background-color:#2D2C2C;
-    position: absolute;
+    position: fixed;
     margin: 0;
     bottom: 0;
     width: 100%; 
