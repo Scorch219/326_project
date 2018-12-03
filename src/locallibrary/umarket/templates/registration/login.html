@@ -1,7 +1,7 @@
 {% extends "template_base.html" %}
-
+{% load static %}
 {% block content %}
-
+<!--
 <center>
 
 {% if form.errors %}
@@ -40,5 +40,41 @@
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
 </center>
+-->
 
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+
+<body class="loginpage">
+
+  {% if form.errors %}
+  <p align="center">Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+  {% if user.is_authenticated %}
+  <p align="center">Your account doesn't have access to this page. To proceed,
+    please login with an account.</p>
+  {% else %}
+  <p align="center">You must be logged in to see this page.</p>
+  {% endif %}
+  {% endif %}
+
+  
+  <div class="loginbox">
+    <!--<img src="avatar.png" class="avatar">-->
+    <h1>Welcome Back!</h1>
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <p>Username</p>
+      <input type="text" name="username" value="" placeholder="Enter Username">
+      <p>Password</p>
+      <input type="password" name="password" value="" placeholder="Enter Password">
+      <input type="submit" value="LOGIN">
+      <a href="{% url 'password_reset' %}">Lost your Password?</a><br>
+      <a href="#">Don't have an account?</a>
+    </form>
+  </div>
+</body>
 {% endblock %}

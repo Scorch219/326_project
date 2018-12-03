@@ -25,81 +25,42 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 
-<body style="min-height: 125vh; overflow: auto; position: relative;  margin: 0;">
+<body style="overflow: auto; position: relative;  margin: 0;">
   {% block navbar %}
   <!-- Navbar Header-->
-  <div class="nav">
-    <li>
-      <image class="logo" src="{% static 'images/um_logo_inverse_small.png'%}">
-    </li>
-    <div class="wrap">
-      <ul>
-        <li>
-          <a class="nav-link" href="{% url 'home-page' %}">Home</a>
-        </li>
-        <li>
-          <a class="nav-link" href="{% url 'browser-page' %}">Product Listings</a>
-        </li>
+  <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar">
+    <div class="container fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand navbar-left" href="{% url 'home-page' %}">
+          <image src="{% static 'images/um_logo_inverse_small.png'%}">
+        </a>
+      </div>
+      <ul class="nav">
+        <li><a href="{% url 'home-page' %}">Home</a></li>
+        <li><a href="{% url 'browser-page' %}">Product Listings</a></li>
         {% if user.is_authenticated %}
-        <li>
-          <a class="nav-link" href="{% url 'user' %}">My Profile</a>
-        </li>
-        <li>
-          <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-        </li>
+        <li><a href="{% url 'user' %}">My Profile</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
         {% else %}
-        <li>
-          <a class="nav-link" href="{% url 'login' %}">Log In</a> </li>
-        </li>
+        <li><a href="{% url 'login' %}">Log In</a></li>
         {% endif %}
       </ul>
-      {% endblock %}
-      <!--
-        <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'home-page' %}">UMarket</a>
-        <ul class="nav navbar-dark mr-auto">
-          <li class="nav-item active"> <a class="nav-link" href="{% url 'home-page' %}">Home<span class="sr-only">(current)</a>
-          </li>
-
-          <li class="nav-item active"> <a class="nav-link" href="{% url 'browser-page' %}">Product Listings</a> </li>
-
-          {% if user.is_authenticated %}
-          <li class="nav-item active"> <a class="nav-link" href="{% url 'user' %}">My Profile</a> </li>
-          <li class="nav-item active"> <a class="nav-link" href="{% url 'logout' %}">Log Out</a> </li>
-          {% else %}
-          <li class="nav-item active"> <a class="nav-link" href="{% url 'login' %}">Log In</a> </li>
-          {% endif %}
-        </ul>
-        </nav>
-        -->
     </div>
-  </div>
+  </nav>
+  {% endblock %}
 
-  <div class="col-md-12">{% block content %}{% endblock %}</div>
+  <div class="content">{% block content %}{% endblock %}</div>
 
   <!-- Footer -->
   {% block footer %}
-  <div class="footer">
-    <div class="wrap">
-      <div class="footer_left">
-        <p>
-          © 2018 Team aTlas Inc. All Rights Reserved.
-        </p>
-      </div>
-      <div class="footer_right">
-        <li class="list-inline-item">
-          <!-- About page works, other links are dummies. Might more about to header instead.-->
-          <a href="{% url 'about-page' %}">About</a>
-          <a href="{% url 'about-page' %}">Contact</a>
-          <a href="{% url 'about-page' %}">Support</a>
-          <a href="{% url 'about-page' %}">Privay Policy</a>
-          <a href="{% url 'about-page' %}">Terms of Use</a>
-          </p>
-        </li>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
+  <footer class="footer">
+    <!-- About page works, other links are dummies. Might more about to header instead.-->
+    <a href="{% url 'about-page' %}">About&nbsp;&nbsp;</a>
+    <a href="#">Contact&nbsp;&nbsp;</a>
+    <a href="#">Support&nbsp;&nbsp;</a>
+    <a href="#">Privay Policy&nbsp;&nbsp;</a>
+    <a href="#">Terms of Use&nbsp;&nbsp;</a>
+  </footer>
   <!--
   <footer class="bg-dark" style="color:aliceblue; position: absolute; bottom:0%; width:100%;">
     <ul class="list-inline text-center ">

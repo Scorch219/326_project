@@ -49,23 +49,14 @@
   <!--Margins around the buttons with max size 5-->
   <div class="row">
     <div class="col mx-5">
-      <div class="card">
+      <div class="card" style="width:400px">
+        <img class="card-img-top" src="{% static 'images/e-commerce2.png' %}" alt="Card Image">
         <div class="card-body text-center">
-          <h5 class="card-title">Already a Member?</h5>
-          <!--<p class="card-text">Log back in to see what's new.</p>-->
-          <div class="buttons" style="text-align: center">
-            <a href="{% url 'login' %}"><button type="button" class="btn btn-dark btn-lg">Sign In</button></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col mx-5">
-      <div class="card">
-        <div class="card-body text-center">
-          <h5 class="card-title">Register Today!</h5>
-          <!--<p class="card-text">Sign up to start selling, buying or exchanging with other students on campus!</p>-->
-          <div class="buttons" style="text-align: center"></div>
-          <button type="button" class="btn btn-dark btn-lg">Sign Up</button>
+          <!--<h4 class="card-title">Buy, Sell, and Trade!</h5>-->
+            <p class="card-text">Log back in to see what's new.</p>
+            <div class="buttons" style="text-align: center">
+              <a href="{% url 'login' %}"><button type="button" class="btn btn-dark btn-lg">Sign In</button></a>
+            </div>
         </div>
       </div>
     </div>

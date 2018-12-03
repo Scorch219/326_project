@@ -1,33 +1,140 @@
 @charset "utf-8";
 @import url(https://fonts.googleapis.com/css?family=Roboto:200,500,700,300);
 
-
-/* HTML5 display-role reset for older browsers */
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
-
-/* Common container */
-html{-webkit-touch-callout: none; -webkit-tap-highlight-color: rgba(0,0,0,0)}
-a{text-decoration: none}a img{border: 0 none}input,select{outline-style: none}strong,b{font-weight: bold}button{font-family: 'Roboto', sans-serif; cursor:pointer}.clear{clear:both}
-
 /* Layout */
-body{font-family: 'Roboto', sans-serif; background-color:#E2E2E2}
-.wrap{position: relative; margin:0 auto; width: 1100px}
-.top ul{position: absolute; top: 25px; right: 184px; height: 21px}
+html, body{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    background-color:#E2E2E2
+}
 
 /* Navbar Layout */
-.nav{height: 53px; min-width: 1100px; background-color: #2D2C2C; border-bottom: 1px solid #1A140D}
-.nav li{display: block; float: left; width: 157px; height: 53px; line-height: 53px; font-size: 18px; font-weight: 500; text-align: center; letter-spacing: -0.03em; color: #F3F2EE}
-.nav li a{text-decoration: none; color: #F3F2EE; align-items: center}
-.nav .wrap{display: flex; justify-content: center}
+.navbar{
+    height: 53px;
+    min-width: 1100px;
+    background-color: #2D2C2C;
+    border-bottom: 1px solid #1A140D
+}
+.navbar li{
+    display: block;
+    float: left;
+    text-align: center;
+    width: 157px;
+    height: 53px;
+    line-height: 53px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    color: #F3F2EE
+}
+.navbar li a{
+    text-decoration: none; 
+    color: #F3F2EE;
+}
+
+.navbar .text-center{
+    justify-content: center;
+    text-align: center;
+}
+
+/* Login Page */
+.loginpage{
+    width: 100%;
+    height: 100%;
+    background-image: url( '/static/images/umass_fade2.jpg' );
+}
+.loginbox{
+    width: 320px;
+    height: 420px;
+    background: rgb(32, 32, 32);
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 25%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.loginbox input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffc107;
+    color:rgb(43, 43, 43);
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgray;
+}
+.loginbox a:hover
+{
+    color: blue;
+}
 
 /* Footer Layout */
-.footer{position: absolute; bottom: 0; width:100%; line-height: 35px; background-color:#2D2C2C}
-.footer .footer_left{float:left; width:500px; font-size:12px; color:#A1A1A1}
-.footer .footer_right{float:right; width:500px; text-align:right; font-size:14px}
+/* works in conjunction with body and html, body to achieve dynamic sticky footer */
+footer{
+    text-align: center;
+    background-color:#2D2C2C;
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    width: 100%; 
+}
 
 /* Homepage template. */
 /* Slideshow size and position */
-.carousel-inner{margin: 0 auto; max-height: 365px !important; text-align: center}
+.carousel-inner{
+    margin: 0 auto;
+    max-height: 365px !important;
+    text-align: center
+}
 
 /* Background image for homepage. */
-.homepage{width: 100%; height: 100%; background-image: url( '/static/images/umass_fade2.jpg' );}
+.homepage{
+    width: 100%;
+    height: 100%;
+    background-image: url( '/static/images/umass_fade2.jpg' );
+    background-repeat: no-repeat;
+}
