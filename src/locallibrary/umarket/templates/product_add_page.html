@@ -1,12 +1,12 @@
 {% extends "template_base.html" %}
 
 {% block content %}
-
-    <h1 style="text-align:center;">Add a Product</h1>
-    <br>
+	<body id = "add_product">
+	<br>
+    <h1 id="add_product_header">Add a Product</h1>
 
     <center>
-        <form id="add_product" method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <table> {{form.as_table}} </table>
             <br>
@@ -15,5 +15,5 @@
         </form>
     </center>
     <br>
-
+	</body>
 {% endblock content %}
