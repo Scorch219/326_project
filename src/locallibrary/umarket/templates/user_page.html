@@ -9,7 +9,7 @@
       <div class="col-md-4">
         <div class="text-center" id="media" style="border: 2px solid rgb(131, 131, 131);">
           <br>
-          <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/chick.jpg' %}" width=150px height=150px
+          <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/No_Image.png' %}" width=150px height=150px
             alt="Generic placeholder image">
           <hr>
           <div class="media-body">
@@ -51,7 +51,7 @@
                 {% if user_list %}
                 {% for product in user_list %}
                 <div class="media">
-                  
+
                   {% if product.picture %}
                   <img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="100pt" width="100pt" />
                   {% else %}
@@ -92,7 +92,7 @@
                       width="100pt" /></p>
                   {% else %}
                   {% load static %}
-                  <p style="text-align: center"></p><img src="{% static 'images/chick.jpg' %}" alt="Chicken" height="100pt"
+                  <p style="text-align: center"></p><img src="{% static 'images/No_Image.png' %}" alt="Chicken" height="100pt"
                     width="100pt" /></p>
                   {% endif %}
                   <div class="media-body">
