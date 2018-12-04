@@ -10,7 +10,7 @@ body{
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    background-color:#E2E2E2
+    background-color:rgb(230, 244, 255)
 }
 
 /* Navbar Layout */
@@ -106,7 +106,7 @@ h1{
 .loginbox input[type="submit"]:hover
 {
     cursor: pointer;
-    background: #ffc107;
+    background: #fff1f1;
     color:rgb(43, 43, 43);
 }
 .loginbox a{
@@ -117,7 +117,7 @@ h1{
 }
 .loginbox a:hover
 {
-    color: blue;
+    color: rgb(151, 187, 255);
 }
 
 /* Footer Layout */
@@ -154,3 +154,25 @@ footer{
     margin-bottom: 10px;
     top: 50px
 }
+
+/* About Page */
+.grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 10px 1px 3fr;
+    grid-row-gap: 50px;
+    grid-auto-rows: 100px;
+    grid-column-gap: 30px;
+    text-align: justify;
+}
+
+.grid div:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
+.grid div:nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+

@@ -1,66 +1,101 @@
-
 {% extends "template_base.html" %}
-
+{% load static %}
 {% block content %}
 
 <body>
-    <h1>About Us!</h1>
+    <div class="grid">
+        <div id="mission">
+            <h2 class="text-center">Our Mission</h2>
 
-    <hr>
+            <p>Our team has sought to provide our UMass campus with its own marketplace to buy and sell items from each
+                other, through a website made just for them! Our goal is to create a means for a student to sell items
+                for
+                either a monetary transaction, or trading system within campus grounds so that students are safe when
+                they're looking for good deals and opportunities. We wish to make the UMarket easy-to-use, fast, and
+                efficient for your convenience!</p>
+            <hr>
+        </div>
+        <div class="text-center" id="meet">
 
-    <h2>Our Vision</h2>
-        <p>Our team has sought to provide our UMass campus with its own marketplace to buy and sell items from each other, through a website made just for them! Our goal is to create a means for a student to sell items for either a monetary transaction, as well as a bartering system in case there were other items they were willing to make a trade for. We wish to make the UMarket easy-to-use, fast, and efficient for your convenience!</p>
-
-    <hr>
-
-    <h2>The Team</h2>
-
-        <h3>Ashley T.</h3>
-        <a>
-            {% load static %}
-            <img style="border-radius: 50%;" src="{% static 'images/Ashley.jpg' %}" alt="Pic of Ashley" width=100px height=100px >
-        </a>
-        <p>Hello! I'm a senior CS major from Salem MA. I'm in love with videos of all genres, enjoy playing rhythm games such as Pump It Up, and I'm an enthusiast for Powerlifting/Bodylifting.</p>
-
-        <h3>Aristotel F.</h3>
-        <a>
-            {% load static %}
-            <img style="border-radius: 50%;"  src= "{% static 'images/Aristotel.jpg' %}" alt="Pic of Aristotel" width=100px height=100px >
-        </a>
-        <p>Hey, I’m Aristotel, I’m a senior CS major who is from Worcester. During my spare time you will find me watching movies that I didn’t get to see in theaters.</p>
-
-        <h3>Brandon C.</h3>
-        <a>
-            {% load static %}
-            <img  style="border-radius: 50%;"  src= "{% static 'images/Brandon.jpg' %}" alt="Pic of Brandon" width=100px height=100px>
-        </a>
-        <p>Hey! I'm a senior CS major from Stoughton, MA. I keep my spare time full playing trumpet in the UMass Marching Band, and  binging Bob's Burgers on Hulu.</p>
-
-        <h3>Tajour C.</h3>
-        <a>
-            {% load static %}
-            <img style="border-radius: 50%;"  src= "{% static 'images/Tajour.jpg' %}" alt="Pic of Tajour" width=100px height=100px>
-        </a>
-        <p>My name is Tajour Cohen-Henry and I am a senior year computer science major. I am also a transfer from Springfield Technical Community College and it is my second year here at UMASS. My hobbie (one I wish I had more time for) is building Gunpla (Gundam) models.</p>
-
-        <h3>John D.</h3>
-        <a>
-            {% load static %}
-            <img style="border-radius: 50%;"  src= "{% static 'images/John.jpg' %}" alt="Pic of John" width=100px height=100px>
-
-        </a>
-        <p> Hello, I'm John Domenichelli and I'm a senior in computer science from Ludlow. I'm an avid command and conquer and strategy game fan.</p>
-
-        <h3>Quyen T.</h3>
-        <a>
-            {% load static %}
-            <img style="border-radius: 50%;"  src= "{% static 'images/Quyen.jpg' %}" alt="Pic of Quyen" width=100px height=100px>
-        </a>
-        <p>My name is Quyen Tran. I'm a computer science student in senior year from Worcester, MA. I love playing games like Smash Bros(plup club), Dance Dance Revolution, and many more.</p>
-
-        <br>
-        <br>
-        <br>
-        <br>
+        </div>
+        <div class="card-container text-center" id="Ashley">
+            <div class="card" style="width:300px; height:450px;">
+                <h3>Ashley T.</h3>
+                <p style="text-align: center"><img style="border-radius: 50%;" src="{% static 'images/Ashley.jpg' %}"
+                        alt="AshleyPic" width=150px height=150px></p>
+                <div class="card-body text-center">
+                    <hr>
+                    <p class="text-justify">Heyo, I'm a senior CS major from Salem, MA. I enjoy playing video games of
+                        all genres, visiting arcades and busting a move with rhythm games such as Pump It Up, and I'm
+                        an enthusiast for Powerlifting/Bodylifting.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-container text-center" id="Aristotel">
+            <div class="card" style="width:300px; height:450px;">
+                <h3>Aristotel F.</h3>
+                <p style="text-align: center"><img style="border-radius: 50%;" src="{% static 'images/Aristotel.jpg' %}"
+                        alt="AristotelPic" width=150px height=150px></p>
+                <div class="card-body text-center">
+                    <hr>
+                    <p class="text-justify">Hey, I’m Aristotel, I’m a senior CS major who is from Worcester. During my
+                        spare time you will find me watching movies that I didn’t get to see in theaters.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-container text-center" id="Brandon">
+            <div class="card" style="width:300px; height:450px;">
+                <h3>Brandon C.</h3>
+                <p style="text-align: center"><img style="border-radius: 50%;" src="{% static 'images/Brandon.jpg' %}"
+                        alt="BrandonPic" width=150px height=150px></p>
+                <div class="card-body text-center">
+                    <hr>
+                    <p class="text-justify">Hey! I'm a senior CS major from Stoughton, MA. I keep my spare time full
+                        playing trumpet in the UMass Marching Band, and binging Bob's Burgers on Hulu.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-container text-center" id="Tajour">
+            <div class="card" style="width:300px; height:475px;">
+                <h3>Tajour C-H.</h3>
+                <p style="text-align: center"><img style="border-radius: 50%;" src="{% static 'images/Tajour.jpg' %}"
+                        alt="TajourPic" width=150px height=150px></p>
+                <div class="card-body text-center">
+                    <hr>
+                    <p class="text-justify">My name is Tajour Cohen-Henry and I am a senior year computer science
+                        major. I am
+                        also a transfer from Springfield Technical Community College and it is my second year here at
+                        UMASS.
+                        My hobbie (one I wish I had more time for) is building Gunpla (Gundam) models.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-container text-center" id="John">
+            <div class="card" style="width:300px; height:475px;">
+                <h3>John D.</h3>
+                <p style="text-align: center"><img style="border-radius: 50%;" src="{% static 'images/John.jpg' %}" alt="JohnPic"
+                        width=150px height=150px></p>
+                <div class="card-body text-center">
+                    <hr>
+                    <p class="text-justify"> Hello, I'm John Domenichelli and I'm a senior in computer science from
+                        Ludlow. I'm
+                        an avid command and conquer and strategy game fan.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-container text-center" id="Quyen">
+            <div class="card" style="width:300px; height:475px;">
+                <h3>Quyen T.</h3>
+                <p style="text-align: center"><img style="border-radius: 50%;" src="{% static 'images/Quyen.jpg' %}"
+                        alt="QuyenPic" width=150px height=150px></p>
+                <div class="card-body text-center">
+                    <hr>
+                    <p class="text-justify">My name is Quyen Tran. I'm a computer science student in senior year from
+                        Worcester, MA. I love playing games like Smash Bros(plup club), Dance Dance Revolution, and
+                        many more.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 {% endblock %}
