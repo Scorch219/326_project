@@ -10,7 +10,7 @@ body{
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    background-color:rgb(230, 244, 255)
+    background-color:rgb(234, 248, 255)
 }
 
 /* Navbar Layout */
@@ -176,3 +176,14 @@ footer{
     grid-column-end: -1;
 }
 
+/* Shadow effect on cards */
+div.card{
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+/* For user profile page */
+.extra_margin{
+    margin-top: 30px;
+}

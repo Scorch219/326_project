@@ -1,121 +1,141 @@
 {% extends "template_base.html" %}
 {% load static %}
-  <!--User info displayed-->
-  {% block content %}
+<!--User info displayed-->
+{% block content %}
 
 <body>
-  <h1>Your Profile</h1>
-  <div class="media" style="border: 2px solid black;">
-      {% load static %}
-    <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/chick.jpg' %}" width=100px height=100px alt="Generic placeholder image">
-    <div class="media-body">
-    {% if user.is_authenticated %}
-      <h5 class="mt-0">Name: {{ user.profile.first_name }} {{ user.profile.last_name }}</h5>
-      <h5 class="mt-0">Email: {{ user.email }}</h5>
-      <h5 class="mt-0">Rating: {{ user.profile.rating }}</h5>
-    {% else %}
-        <h5 class="mt-0">Name: No Name</h5>
-        <h5 class="mt-0">Email: No Email</h5>
-        <h5 class="mt-0">Rating: No Rating</h5>
-    {% endif %}
-    </div>
-  </div>
-
-  <h3>Your Item Listings</h3>
-  <div class="row align-itmes-center">
-    <div class="container">
-      <div class="row justify-content-end">
-        <a href="{% url 'new-product' %}"><button type="button" class="btn btn-primary">Add+</button></a>
-      </div>
-    </div>
-    <div class="container" style="border: 2px solid black;">
-      <div class="col-12">
-        <div class="row justify-content-start">
-
-        <!-- //TODO: Only show what they are selling -->
-        {% if user_list %}
-            {% for product in user_list %}
-
-          <div class="media">
-              {% if product.picture %}
-                  <img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="100pt" width="100pt" style="border-radius: 50%;" />
-              {% else %}
-                  {% load static %}
-                  <img src="{% static 'images/No_Image.png' %}" alt="No Image" height="100pt" width="100pt" style="border-radius: 50%;" />
-              {% endif %}
-            <div class="media-body">
-                <a href="{{ product.get_absolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
-              <h5 class="mt-0">Sellers' Rating: {{ product.seller_rating }}</h5>
-              <!--Would we separate user/seller rating?-->
-              <h5 class="mt-0">Product Category: {{ product.category }}</h5>
-              <h5 class="mt-0">Price: ${{ product.price }}</h5>
-              <h5 class="mt-0">Description: {{ product.description }} </h5>
-              <br>
-            </div>
-
-          </div>
-            {% endfor %}
+  <div class="container-fluid">
+    <div class="row extra_margin">
+      <div class="col-md-4">
+        <div class="text-center" id="media" style="border: 2px solid rgb(131, 131, 131);">
+          <br>
+          <img class="mr-3" style="border-radius: 50%;" src="{% static 'images/chick.jpg' %}" width=150px height=150px
+            alt="Generic placeholder image">
+          <hr>
+          <div class="media-body">
+            {% if user.is_authenticated %}
+            <h5 class="mt-0">Name: {{ user.profile.first_name }} {{ user.profile.last_name }}</h5>
+            <h5 class="mt-0">Email: {{ user.email }}</h5>
+            <h5 class="mt-0">Rating: {{ user.profile.rating }}</h5>
             {% else %}
-            <h5 class="mt-0">You have no products</h5>
+            <h5 class="mt-0">Name: No Name</h5>
+            <h5 class="mt-0">Email: No Email</h5>
+            <h5 class="mt-0">Rating: No Rating</h5>
             {% endif %}
+          </div>
+        </div>
+        <hr>
+        <div class="text-center" id="media" style="border: 2px solid rgb(131, 131, 131);">
+          <br>
+          <p>Comments</p>
+          <div class="media-body">
+            <textarea id="subject" name="subject" placeholder="Placeholder box" style="height:100px; width:300px;"></textarea>
+            <input type="text" name="usrname" placeholder="Enter text...">
+            <input type="submit">
+            <hr>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <h3>Your Favorited Items</h3>
-  <div class="row align-itmes-end">
-    <div class="container" style="border: 2px solid black;">
-      <div class="col-12">
-        <div class="row justify-content-start">
-        <!-- //TODO: Only show what they favorited. -->
-        {% if favorited %}
-            {% for product in favorited  %}
-          <div class="media">
-              {% if product.picture %}
-                  <img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="100pt" width="100pt" style="border-radius: 50%;" />
-              {% else %}
-                  {% load static %}
-                  <img src="{% static 'images/chick.jpg' %}" alt="Chicken" height="100pt" width="100pt" style="border-radius: 50%;" />
-              {% endif %}
-            <div class="media-body">
-                <a href="{{ product.get_absolute_url }}"><h5 class="mt-0">Product Name: {{ product.name }}</h5></a>
-              <h5 class="mt-0">Sellers' Rating: {{ product.seller_rating }}</h5>
-              <h5 class="mt-0">Product Category: {{ product.category }}</h5>
-              <h5 class="mt-0">Price: ${{ product.price }}</h5>
-              <h5 class="mt-0">Description: {{ product.description }}</h5>
-              <br>
+      <div class="col-md-7">
+        <h3>Your Item Listings</h3>
+        <div class="row align-items-center">
+          <div class="container">
+            <div class="row justify-content-end">
+              <a href="{% url 'new-product' %}"><button type="button" class="btn btn-primary">Add+</button></a>
             </div>
           </div>
-            {% endfor %}
-            {% else %}
-            <h5 class="mt-0">Wishlist is empty</h5>
-            {% endif %}
+          <div class="container" style="border: 2px solid rgb(131, 131, 131);">
+            <div class="col-md-12">
+              <div class="row justify-content-start">
+                {% if user_list %}
+                {% for product in user_list %}
+                <div class="media">
+                  
+                  {% if product.picture %}
+                  <img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="100pt" width="100pt" />
+                  {% else %}
+                  {% load static %}
+                  <img src="{% static 'images/No_Image.png' %}" alt="No Image" height="100pt" width="100pt" />
+                  {% endif %}
+                  <div class="media-body">
+                    <a href="{{ product.get_absolute_url }}">
+                      <h5 class="mt-0">Product Name: {{ product.name }}</h5>
+                    </a>
+                    <h5 class="mt-0">Sellers' Rating: {{ product.seller_rating }}</h5>
+                    <h5 class="mt-0">Product Category: {{ product.category }}</h5>
+                    <h5 class="mt-0">Price: ${{ product.price }}</h5>
+                    <h5 class="mt-0">Description: {{ product.description }} </h5>
+                    <br>
+                  </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h5 class="mt-0">You aren't selling anything!</h5>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <h3>Your Favorited Items</h3>
+        <div class="row align-items-end">
+          <div class="container" style="border: 2px solid rgb(131, 131, 131);">
+            <div class="col-12">
+              <div class="row justify-content-start">
 
-            <!--Limit set to 10 items a page-->
+                {% if favorited %}
+                {% for product in favorited %}
+                <div class="media">
+                  {% if product.picture %}
+                  <p style="text-align: center"><img src="{{product.picture.url}}" alt="{{product.picture.url}}" height="100pt"
+                      width="100pt" /></p>
+                  {% else %}
+                  {% load static %}
+                  <p style="text-align: center"></p><img src="{% static 'images/chick.jpg' %}" alt="Chicken" height="100pt"
+                    width="100pt" /></p>
+                  {% endif %}
+                  <div class="media-body">
+                    <a href="{{ product.get_absolute_url }}">
+                      <h5 class="mt-0">Product Name: {{ product.name }}</h5>
+                    </a>
+                    <h5 class="mt-0">Sellers' Rating: {{ product.seller_rating }}</h5>
+                    <h5 class="mt-0">Product Category: {{ product.category }}</h5>
+                    <h5 class="mt-0">Price: ${{ product.price }}</h5>
+                    <h5 class="mt-0">Description: {{ product.description }}</h5>
+                    <br>
+                  </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <h5 class="mt-0">Your wishlist is empty.</h5>
+                {% endif %}
+
+                <!--Limit set to 10 items a page-->
                 {% block pagination %}
-                    {% if is_paginated %}
-                        <div class="pagination">
-                            <span class="page-links">
-                                {% if page_obj.has_previous %}
-                                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
-                                {% endif %}
-                            <span class="page-current">
-                                <p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</p>
-                            </span>
-                            {% if page_obj.has_next %}
-                                <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
-                            {% endif %}
-                            </span>
-                        </div>
+                {% if is_paginated %}
+                <div class="pagination">
+                  <span class="page-links">
+                    {% if page_obj.has_previous %}
+                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
                     {% endif %}
+                    <span class="page-current">
+                      <p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</p>
+                    </span>
+                    {% if page_obj.has_next %}
+                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+                  </span>
+                </div>
+                {% endif %}
                 {% endblock %}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
-
 </body>
-
-
-  {% endblock %}
+{% endblock %}
