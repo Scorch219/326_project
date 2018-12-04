@@ -187,3 +187,14 @@ div.card{
 .extra_margin{
     margin-top: 30px;
 }
+
+/* new product page */
+#add_product{
+	background-image: url( '/static/images/umass_fade2.jpg' );
+}
+
+#add_product_header{
+	text-align:center;
+	font-family: Times New Roman;
+	font-size: 30px;
+}
