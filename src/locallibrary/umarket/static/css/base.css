@@ -33,7 +33,7 @@ body{
     color: #F3F2EE
 }
 .navbar li a{
-    text-decoration: none; 
+    text-decoration: none;
     color: #F3F2EE;
 }
 
@@ -128,7 +128,7 @@ footer{
     position: fixed;
     margin: 0;
     bottom: 0;
-    width: 100%; 
+    width: 100%;
     flex-direction: 0;
 }
 .content{
@@ -159,10 +159,10 @@ footer{
 .grid{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 10px 1px 3fr;
-    grid-row-gap: 50px;
-    grid-auto-rows: 100px;
-    grid-column-gap: 30px;
+    grid-template-rows: 1px 1px 1fr;
+    grid-row-gap: 25px;
+    grid-auto-rows: 10px;
+    grid-column-gap: 25px;
     text-align: justify;
 }
 
@@ -178,7 +178,7 @@ footer{
 
 /* Shadow effect on cards */
 div.card{
-    width: 250px;
+    width: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
